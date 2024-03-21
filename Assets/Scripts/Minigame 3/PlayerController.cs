@@ -4,20 +4,22 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float movementSpeed = 5.0f;
-    [SerializeField] private int health = 10;
+    [SerializeField] private int health = 3;
     [SerializeField] private int damage = 1;
-    [SerializeField] private float attackRange = 2.0f;
+    [SerializeField] private float attackRange = 1.75f;
     [SerializeField] private Enemy opponent;
 
     private Transform playerTransform;
     private SpriteRenderer playerSprite;
     private Animator anim;
     private float horizontalInput = 0;
+    private bool isDead = false;
     private bool canAttack = true;
     private readonly float attackCooldown = 0.5f;
 
     private readonly string animBoolIsRunning = "isRunning";
     private readonly string animTriggerAttack = "triggerAttack";
+    private readonly string animBoolIsDead = "isDead";
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isDead)
+            return;
+
         HandleMovement();
         AnimatePlayer();
     }
@@ -74,12 +79,24 @@ public class PlayerController : MonoBehaviour
         if (playerTransform.localScale.x != 1)
             return;
 
-        Vector3 direction = opponent.transform.position - playerTransform.position;
-        float distance = direction.magnitude;
+        Vector3 opponentDirection = opponent.transform.position - playerTransform.position;
+        float distance = opponentDirection.magnitude;
 
         if (distance < attackRange)
         {
             opponent.RecieveDamage(damage);
         }
+    }
+
+    public void RecieveDamage(int amount)
+    {
+        health -= amount;
+        if (health < 1)
+        {
+            anim.SetBool(animBoolIsDead, true);
+            isDead = true;
+        }
+
+        Debug.Log("Gladiator Health: " + health);
     }
 }

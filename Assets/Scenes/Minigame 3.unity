@@ -892,6 +892,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8083118539309971049, guid: a540b257d7b290447937248816ff537d, type: 3}
+      propertyPath: health
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083118539309971049, guid: a540b257d7b290447937248816ff537d, type: 3}
       propertyPath: opponent
       value: 
       objectReference: {fileID: 142127308}
@@ -953,12 +957,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9156964537762725598, guid: 948efc394bb80e94f983ec06cb3040ac, type: 3}
+      propertyPath: health
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156964537762725598, guid: 948efc394bb80e94f983ec06cb3040ac, type: 3}
       propertyPath: opponent
       value: 
       objectReference: {fileID: 143693037}
     - target: {fileID: 9156964537762725598, guid: 948efc394bb80e94f983ec06cb3040ac, type: 3}
       propertyPath: attackRange
-      value: 1.5
+      value: 1.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
