@@ -3,19 +3,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed = 5.0f;
-    [SerializeField] private int health = 3;
-    [SerializeField] private int damage = 1;
-    [SerializeField] private float attackRange = 1.75f;
     [SerializeField] private Enemy opponent;
 
-    private Transform playerTransform;
-    private SpriteRenderer playerSprite;
-    private Animator anim;
+    private int health = 4;
+    private readonly float movementSpeed = 5.0f;
+    private readonly int damage = 1;
+    private readonly float attackRange = 1.75f;
+    private readonly float attackCooldown = 0.5f;
+
     private float horizontalInput = 0;
     private bool isDead = false;
     private bool canAttack = true;
-    private readonly float attackCooldown = 0.5f;
+
+    private Transform playerTransform;
+    private Animator anim;
 
     private readonly string animBoolIsRunning = "isRunning";
     private readonly string animTriggerAttack = "triggerAttack";
@@ -24,12 +25,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (opponent == null)
-        {
-            Debug.LogWarning("opponent null: Assign opponent field for player in the editor");
-        }
         playerTransform = gameObject.GetComponent<Transform>();
-        playerSprite = gameObject.GetComponent<SpriteRenderer>();
         anim = gameObject.GetComponent<Animator>();
     }
 

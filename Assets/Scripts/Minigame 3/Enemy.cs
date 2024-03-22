@@ -3,24 +3,26 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed = 5.0f;
-    [SerializeField] private int health = 15;
-    [SerializeField] private int damage = 1;
-    [SerializeField] private float attackRange = 1.75f;
-    [SerializeField] private float tryAttackRange = 2.5f;
-    [SerializeField] private float turnAroundRange = 1.0f;
     [SerializeField] private PlayerController opponent;
+
+    private int health = 15;
+    private readonly float movementSpeed = 5.0f;
+    private readonly int damage = 1;
+    private readonly float attackRange = 1.75f;
+    private readonly float tryAttackRange = 2.25f;
+    private readonly float turnAroundRange = 1.0f;
+    private readonly float movementCooldown = 0.5f;
+    private readonly float attackCooldown = 1.4f;
+    private readonly float skipAttackCooldown = 0.3f;
+
+    private float distance = 0;
+    private int runDirection = 0;
+    private bool movementActive = false;
+    private bool isDead = false;
+    private bool canAttack = true;
 
     private Transform enemyTransform;
     private Animator anim;
-    private bool movementActive = false;
-    private readonly float movementCooldown = 0.5f;
-    private bool isDead = false;
-    private bool canAttack = true;
-    private float distance = 0;
-    private int runDirection = 0;
-    private readonly float attackCooldown = 2.0f;
-    private readonly float skipAttackCooldown = 0.4f;
 
     private readonly string animBoolIsRunning = "isRunning";
     private readonly string animTriggerAttack = "triggerAttack";
@@ -29,10 +31,6 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (opponent == null)
-        {
-            Debug.LogWarning("opponent null: Assign opponent field for enemy in the editor");
-        }
         anim = gameObject.GetComponent<Animator>();
         enemyTransform = gameObject.GetComponent<Transform>();
     }
@@ -67,12 +65,10 @@ public class Enemy : MonoBehaviour
             int rand = Random.Range(0, 2);
             if (rand == 1)
             {
-                Debug.Log("TA");
                 StartCoroutine(TurnAroundCoroutine());
             }
             else
             {
-                Debug.Log("Stay");
                 StartCoroutine(StayCoroutine());
             }
             return;
@@ -82,12 +78,10 @@ public class Enemy : MonoBehaviour
         float getCloserProbability = rand10 * distance;
         if (getCloserProbability > 25)
         {
-            Debug.Log("CC");
             StartCoroutine(CloseDistanceCoroutine());
         }
         else
         {
-            Debug.Log("Stay");
             StartCoroutine(StayCoroutine());
         }
     }
@@ -129,12 +123,10 @@ public class Enemy : MonoBehaviour
             int rand = Random.Range(0, 2);
             if (rand == 1)
             {
-                Debug.Log("Attack");
                 StartCoroutine(AttackCoroutine());
             }
             else
             {
-                Debug.Log("Skip");
                 StartCoroutine(SkipAttackCoroutine());
             }
         }
@@ -160,7 +152,6 @@ public class Enemy : MonoBehaviour
     private void Attack()
     {
         // enemy has to look to the player
-        // TODO ändern zu flipX
         if (enemyTransform.localScale.x != 1)
             return;
 
