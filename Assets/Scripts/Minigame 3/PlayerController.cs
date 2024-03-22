@@ -1,27 +1,40 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed = 5.0f;
+    [SerializeField] private Enemy opponent;
+
+    private int health = 4;
+    private readonly float movementSpeed = 5.0f;
+    private readonly int damage = 1;
+    private readonly float attackRange = 1.75f;
+    private readonly float attackCooldown = 0.5f;
+
+    private float horizontalInput = 0;
+    private bool isDead = false;
+    private bool canAttack = true;
 
     private Transform playerTransform;
-    private SpriteRenderer playerSprite;
     private Animator anim;
-    private float horizontalInput = 0;
 
-    private string animIsRunning = "isRunning";
+    private readonly string animBoolIsRunning = "isRunning";
+    private readonly string animTriggerAttack = "triggerAttack";
+    private readonly string animBoolIsDead = "isDead";
 
     // Start is called before the first frame update
     void Start()
     {
         playerTransform = gameObject.GetComponent<Transform>();
-        playerSprite = gameObject.GetComponent<SpriteRenderer>();
         anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isDead)
+            return;
+
         HandleMovement();
         AnimatePlayer();
     }
@@ -38,6 +51,48 @@ public class PlayerController : MonoBehaviour
 
     private void AnimatePlayer()
     {
-        anim.SetBool(animIsRunning, horizontalInput != 0);
+        anim.SetBool(animBoolIsRunning, horizontalInput != 0);
+
+        if (Input.GetKeyDown(KeyCode.Space) && canAttack)
+        {
+            anim.SetTrigger(animTriggerAttack);
+            StartCoroutine(AttackCoroutine());
+        }
+    }
+
+    private IEnumerator AttackCoroutine()
+    {
+        canAttack = false;
+        Attack();
+
+        yield return new WaitForSeconds(attackCooldown);
+        canAttack = true;
+    }
+
+    private void Attack()
+    {
+        // player has to look to the enemy
+        if (playerTransform.localScale.x != 1)
+            return;
+
+        Vector3 opponentDirection = opponent.transform.position - playerTransform.position;
+        float distance = opponentDirection.magnitude;
+
+        if (distance < attackRange)
+        {
+            opponent.RecieveDamage(damage);
+        }
+    }
+
+    public void RecieveDamage(int amount)
+    {
+        health -= amount;
+        if (health < 1)
+        {
+            anim.SetBool(animBoolIsDead, true);
+            isDead = true;
+        }
+
+        Debug.Log("Gladiator Health: " + health);
     }
 }
