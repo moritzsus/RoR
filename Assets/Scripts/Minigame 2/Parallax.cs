@@ -14,7 +14,7 @@ public class Parallax : MonoBehaviour
         bgLength = gameObject.GetComponent<SpriteRenderer>().bounds.size.x;
     }
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         float temp = cam.transform.position.x * (1 - parallaxEffect);
         float distance = cam.transform.position.x * parallaxEffect;

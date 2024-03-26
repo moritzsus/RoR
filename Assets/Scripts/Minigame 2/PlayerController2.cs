@@ -4,6 +4,8 @@ public class PlayerController2 : MonoBehaviour
 {
     private readonly float movementSpeed = 7.5f;
     private readonly float jumpForce = 23.0f;
+    private readonly float finishLine = 316.0f;
+    private readonly float deathHeight = -10f;
 
     private float groundCheckDistance;
     private bool jumpInputBuffer = false;
@@ -48,7 +50,29 @@ public class PlayerController2 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        HandleMovement();
+        if (!Game2Manager.GetGameOver() && !Game2Manager.GetReachedFinish())
+        {
+            HandleMovement();
+            if (transform.position.x > finishLine)
+                Game2Manager.SetReachedFinish(true);
+            if (transform.position.y < deathHeight)
+            {
+                Game2Manager.SetGameOver(true);
+                Destroy(gameObject);
+            }
+        }
+        if (Game2Manager.GetGameOver())
+        {
+            // TODO menu -> restart
+            Debug.Log("Game over!");
+        }
+        if (Game2Manager.GetReachedFinish())
+        {
+            anim.SetBool(animBoolIsRunning, false);
+            anim.SetBool(animBoolIsJumping, false);
+            anim.SetBool(animBoolIsFalling, false);
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
 
         lastY = playerTransform.position.y;
     }
