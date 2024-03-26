@@ -48,3 +48,6 @@ TagManager:
   - name: Foreground
     uniqueID: 26523679
     locked: 0
+  - name: Sand
+    uniqueID: 842931957
+    locked: 0
