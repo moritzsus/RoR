@@ -6,17 +6,14 @@ public class Game2Manager : MonoBehaviour
 
     private static bool reachedFinish = false;
     private static bool gameOver = false;
+    private static bool eggStolen = false;
 
     private void Awake()
     {
         if (instance == null)
-        {
             instance = this;
-        }
         else
-        {
             Destroy(gameObject);
-        }
     }
 
     public static Game2Manager GetInstance()
@@ -42,5 +39,15 @@ public class Game2Manager : MonoBehaviour
     public static void SetGameOver(bool value)
     {
         gameOver = value;
+    }
+
+    public static bool GetEggStolen()
+    {
+        return eggStolen;
+    }
+
+    public static void SetEggStolen(bool value)
+    {
+        eggStolen = value;
     }
 }

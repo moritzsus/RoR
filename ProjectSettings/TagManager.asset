@@ -16,7 +16,7 @@ TagManager:
   - Ground
   - Player
   - Wolf
-  - 
+  - Chicken
   - 
   - 
   - 
@@ -54,4 +54,7 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 1360194303
+    locked: 0
+  - name: Chicken
+    uniqueID: 1533597799
     locked: 0
