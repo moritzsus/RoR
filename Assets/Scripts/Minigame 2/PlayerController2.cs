@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class PlayerController2 : MonoBehaviour
 {
+    [SerializeField] private GameObject eggPrefab;
+    private Vector3 eggPosition = new(318.65f, -5.5f, 0);
+
     private readonly float movementSpeed = 7.5f;
     private readonly float jumpForce = 23.0f;
     private readonly float finishLine = 316.0f;
@@ -52,9 +55,14 @@ public class PlayerController2 : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (transform.position.y < deathHeight)
+        {
+            Game2Manager.SetGameOver(true);
+            Destroy(gameObject);
+        }
         if (isDead)
             return;
-        if(Game2Manager.GetChickenCaughtPlayer())
+        if (Game2Manager.GetChickenCaughtPlayer())
         {
             isDead = true;
             anim.SetBool(animBoolIsDead, true);
@@ -64,11 +72,9 @@ public class PlayerController2 : MonoBehaviour
         {
             HandleMovement();
             if (transform.position.x > finishLine && Game2Manager.GetEggStolen())
-                Game2Manager.SetReachedFinish(true);
-            if (transform.position.y < deathHeight)
             {
-                Game2Manager.SetGameOver(true);
-                Destroy(gameObject);
+                Instantiate(eggPrefab, eggPosition, Quaternion.identity);
+                Game2Manager.SetReachedFinish(true);
             }
         }
         if (Game2Manager.GetGameOver())

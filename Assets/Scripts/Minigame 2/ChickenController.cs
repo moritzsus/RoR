@@ -9,8 +9,12 @@ public class ChickenController : MonoBehaviour
     private bool eggStolenCalled = false;
     private bool chasePlayer = false;
     private bool caughtPlayer = false;
+    private bool fleeFromWolf = false;
+
     private readonly float caughtPlayerDistance = 0.8f;
-    private readonly float defaultMovementSpeed = 7.7f;
+    private readonly float defaultMovementSpeed = 7.85f;
+    private readonly float maxFollowX = 310.0f;
+    private readonly float deathHeight = -10f;
 
     private Animator anim;
     private Rigidbody2D rigidBody;
@@ -33,6 +37,12 @@ public class ChickenController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (transform.position.y < deathHeight)
+        {
+            Game2Manager.SetGameOver(true);
+            Destroy(gameObject);
+        }
+
         if (Game2Manager.GetEggStolen() && !eggStolen)
         {
             eggStolen = true;
@@ -46,7 +56,18 @@ public class ChickenController : MonoBehaviour
 
         if (chasePlayer)
         {
+            if (Game2Manager.GetReachedFinish() && !fleeFromWolf)
+            {
+                chasePlayer = false;
+                StartCoroutine(HandlePlayerInFinish());
+                return;
+            }
             ChasePlayer();
+        }
+
+        if (fleeFromWolf)
+        {
+            transform.position += defaultMovementSpeed * Time.fixedDeltaTime * Vector3.left;
         }
     }
 
@@ -58,9 +79,21 @@ public class ChickenController : MonoBehaviour
 
         boxCollider.enabled = false;
         rigidBody.simulated = false;
-        anim.SetTrigger(animBoolIsChasing);
+        anim.SetBool(animBoolIsChasing, true);
         spriteRenderer.sortingLayerName = "Chicken";
         chasePlayer = true;
+    }
+
+    private IEnumerator HandlePlayerInFinish()
+    {
+        anim.SetBool(animBoolIsChasing, false);
+        anim.SetTrigger(animTriggerAngry);
+
+        yield return new WaitForSeconds(0.9f);
+
+        fleeFromWolf = true;
+        transform.localScale = new Vector3(-1.5f, 1.5f, 1.5f);
+        anim.SetBool(animBoolIsChasing, true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -73,14 +106,22 @@ public class ChickenController : MonoBehaviour
 
     private void ChasePlayer()
     {
+        if (transform.position.x > maxFollowX)
+            return;
+
         if (targetToChase != null && !caughtPlayer)
         {
-            Vector3 diff = (targetToChase.transform.position - transform.position);
+            Vector3 diff = targetToChase.transform.position - transform.position;
             Vector3 direction = diff.normalized;
             float distance = diff.magnitude;
             transform.position += defaultMovementSpeed * Time.fixedDeltaTime * direction;
 
-            if(distance < caughtPlayerDistance)
+            if (targetToChase.transform.position.x < transform.position.x)
+                transform.localScale = new Vector3(-1.5f, 1.5f, 1.5f);
+            else
+                transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+
+            if (distance < caughtPlayerDistance)
             {
                 anim.SetBool(animBoolIsPecking, true);
                 caughtPlayer = true;
