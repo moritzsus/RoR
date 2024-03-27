@@ -7,6 +7,7 @@ public class Game2Manager : MonoBehaviour
     private static bool reachedFinish = false;
     private static bool gameOver = false;
     private static bool eggStolen = false;
+    private static bool chickenCaughtPlayer = false;
 
     private void Awake()
     {
@@ -49,5 +50,15 @@ public class Game2Manager : MonoBehaviour
     public static void SetEggStolen(bool value)
     {
         eggStolen = value;
+    }
+
+    public static bool GetChickenCaughtPlayer()
+    {
+        return chickenCaughtPlayer;
+    }
+
+    public static void SetChickenCaughtPlayer(bool value)
+    {
+        chickenCaughtPlayer = value;
     }
 }

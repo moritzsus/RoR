@@ -10,6 +10,7 @@ public class PlayerController2 : MonoBehaviour
     private float groundCheckDistance;
     private bool jumpInputBuffer = false;
     private bool isPlayerInAir = false;
+    private bool isDead = false;
     private float jumpeTime;
     private bool isFalling = false;
     private float horizontalInput = 0;
@@ -24,6 +25,7 @@ public class PlayerController2 : MonoBehaviour
     private readonly string animBoolIsRunning = "isRunning";
     private readonly string animBoolIsJumping = "isJumping";
     private readonly string animBoolIsFalling = "isFalling";
+    private readonly string animBoolIsDead = "isDead";
 
     // Start is called before the first frame update
     void Start()
@@ -50,10 +52,18 @@ public class PlayerController2 : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isDead)
+            return;
+        if(Game2Manager.GetChickenCaughtPlayer())
+        {
+            isDead = true;
+            anim.SetBool(animBoolIsDead, true);
+        }
+
         if (!Game2Manager.GetGameOver() && !Game2Manager.GetReachedFinish())
         {
             HandleMovement();
-            if (transform.position.x > finishLine)
+            if (transform.position.x > finishLine && Game2Manager.GetEggStolen())
                 Game2Manager.SetReachedFinish(true);
             if (transform.position.y < deathHeight)
             {

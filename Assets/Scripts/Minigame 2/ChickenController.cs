@@ -8,6 +8,8 @@ public class ChickenController : MonoBehaviour
     private bool eggStolen = false;
     private bool eggStolenCalled = false;
     private bool chasePlayer = false;
+    private bool caughtPlayer = false;
+    private readonly float caughtPlayerDistance = 0.8f;
     private readonly float defaultMovementSpeed = 7.7f;
 
     private Animator anim;
@@ -17,6 +19,7 @@ public class ChickenController : MonoBehaviour
 
     private readonly string animTriggerAngry = "angry";
     private readonly string animBoolIsChasing = "isChasing";
+    private readonly string animBoolIsPecking = "isPecking";
 
     // Start is called before the first frame update
     void Start()
@@ -70,10 +73,21 @@ public class ChickenController : MonoBehaviour
 
     private void ChasePlayer()
     {
-        if (targetToChase != null)
+        if (targetToChase != null && !caughtPlayer)
         {
-            Vector3 direction = (targetToChase.transform.position - transform.position).normalized;
+            Vector3 diff = (targetToChase.transform.position - transform.position);
+            Vector3 direction = diff.normalized;
+            float distance = diff.magnitude;
             transform.position += defaultMovementSpeed * Time.fixedDeltaTime * direction;
+
+            if(distance < caughtPlayerDistance)
+            {
+                anim.SetBool(animBoolIsPecking, true);
+                caughtPlayer = true;
+                boxCollider.enabled = true;
+                rigidBody.simulated = true;
+                Game2Manager.SetChickenCaughtPlayer(true);
+            }
         }
     }
 }
