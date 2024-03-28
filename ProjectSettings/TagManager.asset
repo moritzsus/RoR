@@ -51,3 +51,12 @@ TagManager:
   - name: Sand
     uniqueID: 842931957
     locked: 0
+  - name: Player
+    uniqueID: 601087833
+    locked: 0
+  - name: Stealth
+    uniqueID: 2034438213
+    locked: 0
+  - name: Stealt-Assets
+    uniqueID: 2510620863
+    locked: 0

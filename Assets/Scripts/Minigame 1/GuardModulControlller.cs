@@ -4,8 +4,8 @@ using UnityEngine;
 public class GuardModulController : MonoBehaviour
 {
     public float speed = 5f;
-    public float maxLeft = -12.0f;
-    public float maxRight = -6f;
+    public float maxLeft = -6.5f;
+    public float maxRight = -2.5f;
     float richtung  = -1;
     public bool isIdle = false;
     private Animator anim;
@@ -19,17 +19,18 @@ public class GuardModulController : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (!isIdle && transform.position.x > maxRight)
+        if (!isIdle && transform.localPosition.x > maxRight)
         {
-            transform.position = new Vector3(maxRight - 0.1f, transform.position.y, transform.position.z);
+            transform.localPosition = new Vector3(maxRight - 0.1f, transform.localPosition.y, transform.localPosition.z);
             StartCoroutine(IdleRightCoroutine());
         }
-        else if (!isIdle && transform.position.x < maxLeft)
+        else if (!isIdle && transform.localPosition.x < maxLeft)
         {
-            transform.position = new Vector3(maxLeft + 0.1f, transform.position.y, transform.position.z);
+            transform.localPosition = new Vector3(maxLeft + 0.1f, transform.localPosition.y, transform.localPosition.z);
             StartCoroutine(IdleRightCoroutine());
         }
         if (!isIdle)
+            this.speed = Random.Range(5, 8);
             transform.Translate(Vector2.right * speed * richtung * Time.deltaTime * 0.2f);
     }
 

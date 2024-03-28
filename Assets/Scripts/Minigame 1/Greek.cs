@@ -9,13 +9,13 @@ public class Greek : MonoBehaviour
     public bool isIdle = false;
     private string animIdle = "Idle";
 
-    public float horizontalInput = 1;
+    public float horizontalInput = -1;
 
     public float lastHoritzontalInput = 1;
     public float verticalInput = 1;
     private Transform playerTransform;
 
-    private float maxLeft = -14;
+    private float maxLeft = -73;
     private float maxRight = 14;
 
     private float maxDown = -7;
