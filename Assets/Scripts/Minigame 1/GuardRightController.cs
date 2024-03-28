@@ -5,7 +5,7 @@ public class GuardRightController : MonoBehaviour
 {
     public float speed = 5f;
     public float maxLeft = 5.0f;
-    public float maxRight = 11.0f;
+    public float maxRight = 10.5f;
     float richtung  = -1;
     public bool isIdle = false;
     private Animator anim;
@@ -14,6 +14,7 @@ public class GuardRightController : MonoBehaviour
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
+        if(anim == null)Debug.Log("Animator is null!");
     }
 
     void FixedUpdate()
