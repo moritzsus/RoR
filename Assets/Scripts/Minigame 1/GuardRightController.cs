@@ -4,8 +4,8 @@ using UnityEngine;
 public class GuardRightController : MonoBehaviour
 {
     public float speed = 5f;
-    public float maxLeft = 5.5f;
-    public float maxRight = 11.5f;
+    public float maxLeft = 5.0f;
+    public float maxRight = 11.0f;
     float richtung  = -1;
     public bool isIdle = false;
     private Animator anim;
