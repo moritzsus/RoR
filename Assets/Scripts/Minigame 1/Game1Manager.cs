@@ -6,6 +6,8 @@ public class Game1Manager : MonoBehaviour
 {
     private static Game1Manager instance = null;
 
+    public int GreekCounter = 0;
+
     public bool gameOver = false;
 
     private List<GuardModulController> guards = new List<GuardModulController>();
@@ -45,7 +47,7 @@ public class Game1Manager : MonoBehaviour
         foreach (GuardModulController guard in guards)
         {
             if (guard.wasSeen)
-            {
+            {   GreekCounter++;
                 gameOver = true;
                 Debug.Log("Game Over");
                 break;

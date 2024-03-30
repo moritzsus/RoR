@@ -15,7 +15,7 @@ public class Greek : MonoBehaviour
     public float verticalInput = 1;
     private Transform playerTransform;
 
-    private float maxLeft = -43;
+    private float maxLeft = -72;
     private float maxRight = 14;
 
     private float maxDown = -7;
@@ -79,7 +79,7 @@ public class Greek : MonoBehaviour
             }
             if (IsinHorse(playerTransform.position.x, playerTransform.position.y))
             {
-                playerTransform.position = new Vector3(13.5f, -6, 0);
+                ResetToStart();
             }
         }
     }
@@ -93,9 +93,13 @@ public class Greek : MonoBehaviour
 
     private bool IsinHorse(float x, float y)
     {
-        if (x > -2 && x < 3 && y > -6)
+        if (x > -4.2 && x < 2.6 && y > -6.1f)
             return true;
         else return false;
+    }
+
+    private void ResetToStart(){
+        playerTransform.position = new Vector3(-72, -6.75f, 0);
     }
 
 

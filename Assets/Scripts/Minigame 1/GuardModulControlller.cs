@@ -16,13 +16,14 @@ public class GuardModulController : MonoBehaviour
 
     public bool wasSeen = false; // Variable to track if the guard was seen
 
-    public GameObject alertObject; // Reference to the Alert child object
+    private GameObject alertObject; // Reference to the Alert child object
 
-    private bool alertedAnimationPlayed = false;
+    public bool alertedAnimationPlayed = false;
 
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
+        alertObject = transform.Find("Alert").gameObject; // Find the Alert child object
         if (alertObject != null)
         {
             alertObject.SetActive(false); // Initially hide the alert object
@@ -30,10 +31,11 @@ public class GuardModulController : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
+    {   
         if (alertedAnimationPlayed)
         {
             anim.SetBool(animIdle, false); // Set the idle animation to false
+            alertObject.SetActive(true); // Activate the alert object when alerted animation is played
             return;
         }
 
@@ -41,6 +43,7 @@ public class GuardModulController : MonoBehaviour
         if (CheckIfSeen())
         {
             wasSeen = true;
+            this.OnAlertedAnimationStart();
         }
 
         if (!isIdle && transform.localPosition.x > maxRight)
@@ -60,16 +63,6 @@ public class GuardModulController : MonoBehaviour
         }
         // Set the animator parameter based on the condition
         anim.SetBool(animAlerted, isIdle && wasSeen);
-
-        // Activate/deactivate the alert object based on the condition
-        if (alertObject != null)
-        {
-            alertObject.SetActive(isIdle && wasSeen);
-            if (isIdle && wasSeen && !alertedAnimationPlayed)
-            {
-                PlayAlertAnimation();
-            }
-        }
     }
 
     // Method to simulate the logic of being seen
@@ -100,19 +93,11 @@ public class GuardModulController : MonoBehaviour
         transform.localScale = new Vector3(-transform.localScale.x, 1, 1);
         anim.SetBool(animIdle, false); // Set the idle animation to false
         isIdle = false;
-
     }
 
-    private void PlayAlertAnimation()
+    // This method is called by an animation event when the alerted animation starts
+    public void OnAlertedAnimationStart()
     {
-        if (alertObject != null)
-        {
-            Animator alertAnimator = alertObject.GetComponent<Animator>();
-            if (alertAnimator != null)
-            {
-                alertAnimator.SetBool(animAlerted, true);
-                alertedAnimationPlayed = true;
-            }
-        }
+        alertedAnimationPlayed = true;
     }
 }
