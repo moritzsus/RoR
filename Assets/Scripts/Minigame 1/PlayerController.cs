@@ -15,7 +15,7 @@ public class Greek : MonoBehaviour
     public float verticalInput = 1;
     private Transform playerTransform;
 
-    private float maxLeft = -73;
+    private float maxLeft = -43;
     private float maxRight = 14;
 
     private float maxDown = -7;
@@ -42,6 +42,7 @@ public class Greek : MonoBehaviour
         {
             isIdle = true;
             anim.SetBool(animIdle, true);
+            if(lastHoritzontalInput !=0)
             playerTransform.localScale = new Vector3(lastHoritzontalInput, 1, 1);
         }
         if (!isIdle)

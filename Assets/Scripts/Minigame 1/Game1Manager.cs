@@ -6,9 +6,9 @@ public class Game1Manager : MonoBehaviour
 {
     private static Game1Manager instance = null;
 
-    private static float GreekCounter = 0;
-    private static bool gameOver = false;
+    public bool gameOver = false;
 
+    private List<GuardModulController> guards = new List<GuardModulController>();
 
     private void Awake()
     {
@@ -23,23 +23,33 @@ public class Game1Manager : MonoBehaviour
         return instance;
     }
 
-    public static float GetGreekCounter()
-    {
-        return GreekCounter;
-    }
-
-    public static void SetGreekCounter()
-    {
-        GreekCounter++;
-    }
-
-    public static bool GetGameOver()
+    public bool GetGameOver()
     {
         return gameOver;
     }
 
-    public static void SetGameOver(bool value)
+    public void SetGameOver(bool value)
     {
         gameOver = value;
+    }
+
+    // Method to register a guard
+    public void RegisterGuard(GuardModulController guard)
+    {
+        guards.Add(guard);
+    }
+
+    // Method to check if any guard was seen
+    void FixedUpdate()
+    {
+        foreach (GuardModulController guard in guards)
+        {
+            if (guard.wasSeen)
+            {
+                gameOver = true;
+                Debug.Log("Game Over");
+                break;
+            }
+        }
     }
 }
