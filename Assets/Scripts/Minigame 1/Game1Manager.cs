@@ -1,16 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Game1Manager : MonoBehaviour
 {
     private static Game1Manager instance = null;
 
-    public int GreekCounter = 0;
-
     public bool gameOver = false;
 
+    public int GreekCounter = 0;
+
     private List<GuardModulController> guards = new List<GuardModulController>();
+
+    private PlayerGreekController playController; // Reference to the PlayController
+
+    private TextMeshProUGUI greekCounterText;
 
     private void Awake()
     {
@@ -18,6 +22,12 @@ public class Game1Manager : MonoBehaviour
             instance = this;
         else
             Destroy(gameObject);
+
+        // Get the TextMeshProUGUI component
+        greekCounterText = FindObjectOfType<TextMeshProUGUI>();
+
+        // Find the PlayController in the scene and assign the reference
+        playController = FindObjectOfType<PlayerGreekController>();
     }
 
     public static Game1Manager GetInstance()
@@ -44,14 +54,29 @@ public class Game1Manager : MonoBehaviour
     // Method to check if any guard was seen
     void FixedUpdate()
     {
-        foreach (GuardModulController guard in guards)
+        // Access the Greek counter from the PlayController
+        if (playController != null)
         {
-            if (guard.wasSeen)
-            {   GreekCounter++;
-                gameOver = true;
-                Debug.Log("Game Over");
-                break;
+            if (GreekCounter < playController.GetGreekCounter())
+            {
+                foreach (GuardModulController guard in guards)
+                {
+                    guard.ResetToWalk(); // Call a method in GuardModulController to reset to walk state
+                }
             }
+            GreekCounter = playController.GetGreekCounter();
+        }
+        // Update the TextMeshProUGUI text
+        if (greekCounterText != null)
+        {
+            greekCounterText.text = GreekCounter + "/5";
+        }
+
+        // Check if the game is over
+        if (GreekCounter >= 5)
+        {
+            gameOver = true;
+            Debug.Log("Game Over");
         }
     }
 }

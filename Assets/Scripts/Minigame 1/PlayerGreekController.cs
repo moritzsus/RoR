@@ -3,11 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Greek : MonoBehaviour
+public class PlayerGreekController : MonoBehaviour
 {
     private readonly float movementSpeed = 5.0f;
     public bool isIdle = false;
     private string animIdle = "Idle";
+
+    private int counter = 0;
 
     public float horizontalInput = -1;
 
@@ -66,7 +68,7 @@ public class Greek : MonoBehaviour
             }
             if (IsinHorse(playerTransform.position.x, playerTransform.position.y))
             {
-                playerTransform.position = new Vector3(13.5f, -6, 0);
+                ResetToStart();
             }
             this.lastHoritzontalInput = -horizontalInput;
         }
@@ -100,8 +102,12 @@ public class Greek : MonoBehaviour
 
     private void ResetToStart(){
         playerTransform.position = new Vector3(-72, -6.75f, 0);
+        counter++;
     }
-
+        internal int GetGreekCounter()
+    {
+        return counter;
+    }
 
 }
 

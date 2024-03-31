@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -99,5 +100,11 @@ public class GuardModulController : MonoBehaviour
     public void OnAlertedAnimationStart()
     {
         alertedAnimationPlayed = true;
+    }
+
+    internal void ResetToWalk()
+    {
+        anim.SetBool(animAlerted, false);
+        anim.SetBool(animIdle,true);
     }
 }
