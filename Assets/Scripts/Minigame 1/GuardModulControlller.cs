@@ -22,12 +22,17 @@ public class GuardModulController : MonoBehaviour
     public bool alertedAnimationPlayed = false;
 
     void Start()
-    {
+    {   
+         Game1Manager gameManager = Game1Manager.GetInstance();
         anim = gameObject.GetComponent<Animator>();
         alertObject = transform.Find("Alert").gameObject; // Find the Alert child object
         if (alertObject != null)
         {
             alertObject.SetActive(false); // Initially hide the alert object
+        }
+                if (gameManager != null)
+        {
+            gameManager.RegisterGuard(this);
         }
     }
 
@@ -102,9 +107,12 @@ public class GuardModulController : MonoBehaviour
         alertedAnimationPlayed = true;
     }
 
-    internal void ResetToWalk()
-    {
+    public void ResetToWalk()
+    {   
         anim.SetBool(animAlerted, false);
-        anim.SetBool(animIdle,true);
+        anim.SetBool(animIdle,false);
+         alertObject.SetActive(false);
+        this.wasSeen = false;
+        this.alertedAnimationPlayed = false;
     }
 }

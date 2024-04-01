@@ -101,8 +101,10 @@ public class PlayerGreekController : MonoBehaviour
     }
 
     private void ResetToStart(){
-        playerTransform.position = new Vector3(-72, -6.75f, 0);
         counter++;
+        if(counter<3){
+        playerTransform.position = new Vector3(-72, -6.75f, 0);
+        }
     }
         internal int GetGreekCounter()
     {
