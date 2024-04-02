@@ -117,7 +117,7 @@ public class Game1Manager : MonoBehaviour
         }
 
         // Check if the player has won
-        if (GreekCounter >= 3)
+        if (GreekCounter >= 1)
         {
             // Activate the WinScreen image
             if (winScreenImage != null)

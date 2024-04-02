@@ -102,7 +102,7 @@ public class PlayerGreekController : MonoBehaviour
 
     private void ResetToStart(){
         counter++;
-        if(counter<3){
+        if(counter<1){
         playerTransform.position = new Vector3(-72, -6.75f, 0);
         }
     }
