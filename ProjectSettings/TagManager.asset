@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -12,10 +13,10 @@ TagManager:
   - Background
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Player
+  - Wolf
+  - Chicken
   - 
   - 
   - 
@@ -42,9 +43,16 @@ TagManager:
   - name: Background
     uniqueID: 1087764823
     locked: 0
+  - name: bgFill
+    uniqueID: 1175013277
+    locked: 0
+  - name: TilemapBackground
+    uniqueID: 3095503055
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+
   - name: Foreground
     uniqueID: 26523679
     locked: 0
@@ -62,4 +70,9 @@ TagManager:
     locked: 0
   - name: Images
     uniqueID: 2429576439
+  - name: Ground
+    uniqueID: 1360194303
+    locked: 0
+  - name: Chicken
+    uniqueID: 1533597799
     locked: 0
