@@ -26,7 +26,10 @@ public class GuardSpawner4 : MonoBehaviour
 
     private void SpawnGuard()
     {
-        float timeToSpawn = Random.Range(1f, 3f);
+        if (GameManager4.gameFinished)
+            return;
+
+        float timeToSpawn = Random.Range(0.5f, 2f);
         int heightLevel = Random.Range(0, 3);
         int side = Random.Range(0, 2);
 

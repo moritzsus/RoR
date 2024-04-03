@@ -19,6 +19,9 @@ public class GuardMovement4 : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (GameManager4.gameFinished)
+            return;
+
         if (transform.position.x < destroyLeft)
         {
             GameManager4.IncreaseGuardsEscaped();

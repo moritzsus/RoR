@@ -15,6 +15,8 @@ public class GameManager4 : MonoBehaviour
     private static int guardsHit = 0;
     private static int guardsEscaped = 0;
 
+    public static bool gameFinished = false;
+
 
     private void Awake()
     {
@@ -31,12 +33,22 @@ public class GameManager4 : MonoBehaviour
     public static void IncreaseGuardsHit()
     {
         guardsHit++;
-        //Debug.Log("Hit: " + guardsHit);
+        Debug.Log("Hit: " + guardsHit);
+        if (guardsHit == 15)
+        {
+            Debug.Log("YOU WON");
+            gameFinished = true;
+        }
     }
     public static void IncreaseGuardsEscaped()
     {
         guardsEscaped++;
-        //Debug.Log("Escaped: " + guardsEscaped);
+        Debug.Log("Escaped: " + guardsEscaped);
+        if (guardsEscaped == 5)
+        {
+            Debug.Log("GAME OVER");
+            gameFinished = true;
+        }
     }
     public static GameObject GetCurrentAxe()
     {
@@ -63,4 +75,6 @@ public class GameManager4 : MonoBehaviour
     {
         return allowToThrow;
     }
+
+    
 }

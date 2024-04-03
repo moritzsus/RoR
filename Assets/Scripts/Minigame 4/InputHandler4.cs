@@ -25,6 +25,9 @@ public class InputHandler4 : MonoBehaviour
     
     public void OnClick(InputAction.CallbackContext context)
     {
+        if (GameManager4.gameFinished)
+            return;
+
         GameManager4 gameManagerScript = gameManager.GetComponent<GameManager4>();
         if (!gameManagerScript.GetAllowedToThrow())
             return;
