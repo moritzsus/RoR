@@ -52,14 +52,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Assets
+    uniqueID: 3984475539
+    locked: 0
   - name: Player
     uniqueID: 3053646001
     locked: 0
   - name: Hiding
     uniqueID: 2756596897
-    locked: 0
-  - name: Assets
-    uniqueID: 3984475539
     locked: 0
   - name: GameScreen
     uniqueID: 3434100557
