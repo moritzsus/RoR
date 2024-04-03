@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerGreekController : MonoBehaviour
@@ -35,7 +32,10 @@ public class PlayerGreekController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow))
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+
+        if (horizontalInput != 0 || verticalInput != 0)
         {
             isIdle = false;
             anim.SetBool(animIdle, false);
@@ -44,8 +44,8 @@ public class PlayerGreekController : MonoBehaviour
         {
             isIdle = true;
             anim.SetBool(animIdle, true);
-            if(lastHoritzontalInput !=0)
-            playerTransform.localScale = new Vector3(lastHoritzontalInput, 1, 1);
+            if (lastHoritzontalInput != 0)
+                playerTransform.localScale = new Vector3(lastHoritzontalInput, 1, 1);
         }
         if (!isIdle)
         {
@@ -56,9 +56,6 @@ public class PlayerGreekController : MonoBehaviour
 
     private void HandleMovement()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
-
         if (horizontalInput != 0)
         {
             playerTransform.localScale = new Vector3(horizontalInput, 1, 1);
@@ -100,13 +97,15 @@ public class PlayerGreekController : MonoBehaviour
         else return false;
     }
 
-    private void ResetToStart(){
+    private void ResetToStart()
+    {
         counter++;
-        if(counter<1){
-        playerTransform.position = new Vector3(-72, -6.75f, 0);
+        if (counter < 1)
+        {
+            playerTransform.position = new Vector3(-72, -6.75f, 0);
         }
     }
-        internal int GetGreekCounter()
+    internal int GetGreekCounter()
     {
         return counter;
     }
