@@ -1,0 +1,1227 @@
+fileFormatVersion: 2
+guid: 2da3208dd86d61f438385db66ceceee9
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 24
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: EnvTileAtlas_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1186
+        width: 94
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c92aeeaa29f13c149848fe6fb7b72224
+      internalID: -1840512296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_1
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 896
+        width: 447
+        height: 384
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b10b8c314b6f664a8ae512c8e6dcd45
+      internalID: -1305365844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_2
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 1216
+        width: 64
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1561688a1c55ac5489ae83f259eca788
+      internalID: -91641807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_3
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 1218
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e3636d65c6149a4bbfa5b8ff8a07139
+      internalID: -1631572254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1090
+        width: 126
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53f8ec7a9d470b64fa2ac8599cf1c56a
+      internalID: 2146337394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_5
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 960
+        width: 364
+        height: 256
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b42706fbdbe31e49944980ff34b3592
+      internalID: -1851478016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_6
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 896
+        width: 255
+        height: 201
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbb070588d002a34dab10723905e4bf4
+      internalID: -661385773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_7
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 864
+        width: 93
+        height: 224
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a0b0663771c8ce4d86ff109c42adb9c
+      internalID: -1454539250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_8
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 864
+        width: 18
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a94f7d917795aa48bf486a30893b065
+      internalID: -1313129230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_9
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 864
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ce63a159c3859347b714132f9318fd5
+      internalID: 527569464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_10
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 864
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eec3030415b12e041b95ea6869064cfa
+      internalID: 450029620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_11
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 882
+        width: 96
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afb25e9ac10244b4180dec9dea62ec2c
+      internalID: 173418309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_12
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 864
+        width: 29
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63dc21a1990fe924e9592fc44761341b
+      internalID: -339830187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_13
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 864
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2de327f06018df4d8d96de36827a1bc
+      internalID: -892782044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_14
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 864
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f899c3520bd43154d9a6df0ec6e5110e
+      internalID: 1558458926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_15
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 864
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7da3f1d92f6292542a7c13387625365e
+      internalID: -311524004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_16
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 864
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceca9a5cb21aa0d4c8009f016ee37e2f
+      internalID: 1935845853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_17
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 864
+        width: 28
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c1e0559aeacb6f45b71f00c65f46342
+      internalID: -2102214972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_18
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 864
+        width: 25
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e510a1041102b9d419b95fc2eb20b7f0
+      internalID: 389892364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_19
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 672
+        width: 255
+        height: 201
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b58e38ce6cf7c5444a62132f3e514a42
+      internalID: 1770939086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 674
+        width: 95
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff6143c3213ecfd438cd84f8253875d9
+      internalID: -250108348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_21
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 796
+        width: 96
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 637fbc7df72717b4a9a5a14b6d3af736
+      internalID: -794409539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_22
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 832
+        width: 39
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbc24c2659a867d41833c7c1697f9336
+      internalID: -1785220811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_23
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 832
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 953a08f68febf424baba8fedd76822e4
+      internalID: 1010266423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_24
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 832
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 538ff281bcfcde24e86667942d9fabd8
+      internalID: -693301538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_25
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 832
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bf3f20727ecbc14bb257f5ff2f6afd4
+      internalID: 986448617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_26
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 800
+        width: 135
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 59, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9f4b91ad0ec09446a27c2fcd1b39179
+      internalID: 1413888317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_27
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 800
+        width: 47
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54349b7fc18b84f42a4a1bc2110c8ec0
+      internalID: -831918322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_28
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 800
+        width: 39
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20b56500a15f4f942a009f6847e1979e
+      internalID: 361952334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_29
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 800
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ed9e2ca5f4889e4e91aa8f049dc016f
+      internalID: 586091693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_30
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 800
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8e96bef1380bdf42b2ad2821fd74b0c
+      internalID: 699072784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_31
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 800
+        width: 5
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d87dc15470792594f8c93193507384b0
+      internalID: -1435234816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_32
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 290
+        width: 287
+        height: 505
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48bd06f16f0c1ba41a8338a01a2a08f3
+      internalID: 1531079838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_33
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 768
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a333fcb6017d3a4dbbf2ffcab7bcdc9
+      internalID: -2090101941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_34
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 768
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 086edb80251a5fb45a6edf8aee25aeae
+      internalID: 281187757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_35
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 704
+        width: 88
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81fcd257c63056b4cad44de33fcc3e28
+      internalID: -1356300485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_36
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 672
+        width: 93
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1877bdef150c8cf489f7106ee94e207d
+      internalID: -910694854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_37
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 578
+        width: 126
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 053c1f4f8f09b2449b9bec7d68d8ec62
+      internalID: 1189742523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_38
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 640
+        width: 56
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3a3e69221653ce42820ca86ef18f48b
+      internalID: -693498153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_39
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 448
+        width: 255
+        height: 201
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d2a6a540e18a9f46a59a990ccde7fba
+      internalID: -1420817325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_40
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 290
+        width: 94
+        height: 286
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58f20f08dc2a1ae4c8f31157d2828be6
+      internalID: 1093675645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_41
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 0
+        width: 287
+        height: 384
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 886e59dd794989847b146c0e4ca7f247
+      internalID: 327460016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_42
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 320
+        width: 88
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaa38b590a033a743b7b808af1c1cbcd
+      internalID: -1140313738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_43
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 320
+        width: 96
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2ccf51b4199b5d4b87b395f4edaa16e
+      internalID: -246059051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_44
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 224
+        width: 255
+        height: 201
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67abbef8d5b3b8a44b9a5ee1a22cb397
+      internalID: 1588659837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_45
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 288
+        width: 93
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f5b951cd8144e498ba5c78f255173d
+      internalID: 705501132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_46
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 194
+        width: 126
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e197978312864a4c9e8e109a9bba0f7
+      internalID: -555133989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_47
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 256
+        width: 55
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d11b28da21cfd3a47bd5cdbd9bdf4a2b
+      internalID: 1922618177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_48
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 128
+        width: 27
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5612f14848644b14b97369adec267198
+      internalID: -1280429956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnvTileAtlas_49
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 128
+        width: 11
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81347fe06f607d746bfb98030bb45789
+      internalID: -1875327888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: a55aa7a0fa7063248826d302899f7885
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      EnvTileAtlas_0: -1840512296
+      EnvTileAtlas_1: -1305365844
+      EnvTileAtlas_10: 450029620
+      EnvTileAtlas_11: 173418309
+      EnvTileAtlas_12: -339830187
+      EnvTileAtlas_13: -892782044
+      EnvTileAtlas_14: 1558458926
+      EnvTileAtlas_15: -311524004
+      EnvTileAtlas_16: 1935845853
+      EnvTileAtlas_17: -2102214972
+      EnvTileAtlas_18: 389892364
+      EnvTileAtlas_19: 1770939086
+      EnvTileAtlas_2: -91641807
+      EnvTileAtlas_20: -250108348
+      EnvTileAtlas_21: -794409539
+      EnvTileAtlas_22: -1785220811
+      EnvTileAtlas_23: 1010266423
+      EnvTileAtlas_24: -693301538
+      EnvTileAtlas_25: 986448617
+      EnvTileAtlas_26: 1413888317
+      EnvTileAtlas_27: -831918322
+      EnvTileAtlas_28: 361952334
+      EnvTileAtlas_29: 586091693
+      EnvTileAtlas_3: -1631572254
+      EnvTileAtlas_30: 699072784
+      EnvTileAtlas_31: -1435234816
+      EnvTileAtlas_32: 1531079838
+      EnvTileAtlas_33: -2090101941
+      EnvTileAtlas_34: 281187757
+      EnvTileAtlas_35: -1356300485
+      EnvTileAtlas_36: -910694854
+      EnvTileAtlas_37: 1189742523
+      EnvTileAtlas_38: -693498153
+      EnvTileAtlas_39: -1420817325
+      EnvTileAtlas_4: 2146337394
+      EnvTileAtlas_40: 1093675645
+      EnvTileAtlas_41: 327460016
+      EnvTileAtlas_42: -1140313738
+      EnvTileAtlas_43: -246059051
+      EnvTileAtlas_44: 1588659837
+      EnvTileAtlas_45: 705501132
+      EnvTileAtlas_46: -555133989
+      EnvTileAtlas_47: 1922618177
+      EnvTileAtlas_48: -1280429956
+      EnvTileAtlas_49: -1875327888
+      EnvTileAtlas_5: -1851478016
+      EnvTileAtlas_6: -661385773
+      EnvTileAtlas_7: -1454539250
+      EnvTileAtlas_8: -1313129230
+      EnvTileAtlas_9: 527569464
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
