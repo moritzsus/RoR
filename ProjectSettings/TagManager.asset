@@ -52,27 +52,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-
-  - name: Foreground
-    uniqueID: 26523679
-    locked: 0
-  - name: Sand
-    uniqueID: 842931957
-    locked: 0
   - name: Player
-    uniqueID: 601087833
+    uniqueID: 3053646001
     locked: 0
-  - name: Stealth
-    uniqueID: 2034438213
+  - name: Hiding
+    uniqueID: 2756596897
     locked: 0
-  - name: Stealth-Assets
-    uniqueID: 2510620863
+  - name: Assets
+    uniqueID: 3984475539
     locked: 0
-  - name: Images
-    uniqueID: 2429576439
-  - name: Ground
-    uniqueID: 1360194303
-    locked: 0
-  - name: Chicken
-    uniqueID: 1533597799
+  - name: GameScreen
+    uniqueID: 3434100557
     locked: 0
