@@ -5,9 +5,11 @@ public class Game2Manager : MonoBehaviour
     [SerializeField] private GameObject mainCanvas;
     [SerializeField] private GameObject winCanvas;
     [SerializeField] private GameObject lostCanvas;
+    [SerializeField] private GameObject pauseCanvas;
 
     private static Game2Manager instance = null;
 
+    private bool paused = false;
     private bool isGameRunning = false;
     private bool reachedFinish = false;
     private bool gameOver = false;
@@ -34,6 +36,18 @@ public class Game2Manager : MonoBehaviour
         mainCanvas.SetActive(true);
         winCanvas.SetActive(false);
         lostCanvas.SetActive(false);
+        pauseCanvas.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && isGameRunning)
+        {
+            if (paused)
+                OnResume();
+            else
+                OnPause();
+        }
     }
 
     public bool IsGameRunning()
@@ -45,6 +59,8 @@ public class Game2Manager : MonoBehaviour
     {
         isGameRunning = isRunning;
         mainCanvas.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public bool GetReachedFinish()
@@ -100,5 +116,23 @@ public class Game2Manager : MonoBehaviour
         mainCanvas.SetActive(false);
         winCanvas.SetActive(false);
         lostCanvas.SetActive(true);
+    }
+
+    public void OnPause()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        paused = true;
+        pauseCanvas.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void OnResume()
+    {
+        Time.timeScale = 1;
+        paused = false;
+        pauseCanvas.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
