@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCam : MonoBehaviour
@@ -22,6 +20,9 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameManagerMuseum.GetInstance().GetIsGameRunning())
+            return;
+
         // get mouse input
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;

@@ -18,7 +18,7 @@ public class WolfController2 : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Game2Manager.GetReachedFinish() && !playerreachedFinish)
+        if (Game2Manager.GetInstance().GetReachedFinish() && !playerreachedFinish)
         {
             playerreachedFinish = true;
             StartCoroutine(Roar());

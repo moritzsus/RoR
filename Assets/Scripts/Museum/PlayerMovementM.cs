@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -34,6 +32,18 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
 
+    private bool resetPosAfterMinigame = false;
+
+    private void Awake()
+    {
+        MainManager.GetInstance().SetCurrentScene("Museum");
+        Vector3 savedPosition = MainManager.GetInstance().GetLastPlayerPosition();
+        Vector3 savedRotation = MainManager.GetInstance().GetLastPlayerRotation();
+        transform.position = savedPosition;
+        orientation.rotation = Quaternion.Euler(savedRotation);
+        resetPosAfterMinigame = false;
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -44,8 +54,19 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!GameManagerMuseum.GetInstance().GetIsGameRunning())
+            return;
+
+        if (!resetPosAfterMinigame)
+        {
+            resetPosAfterMinigame = true;
+            Vector3 savedPosition = MainManager.GetInstance().GetLastPlayerPosition();
+            Vector3 savedRotation = MainManager.GetInstance().GetLastPlayerRotation();
+            transform.position = savedPosition;
+            orientation.rotation = Quaternion.Euler(savedRotation);
+        }
         // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, (playerHeight * 0.5f) + 0.3f, whatIsGround);
 
         MyInput();
         SpeedControl();
@@ -59,6 +80,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!GameManagerMuseum.GetInstance().GetIsGameRunning())
+            return;
+
         MovePlayer();
     }
 
@@ -81,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         // calculate movement direction
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        moveDirection = (orientation.forward * verticalInput) + (orientation.right * horizontalInput);
 
         // on ground
         if (grounded)
@@ -111,6 +135,7 @@ public class PlayerMovement : MonoBehaviour
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
+
     private void ResetJump()
     {
         readyToJump = true;

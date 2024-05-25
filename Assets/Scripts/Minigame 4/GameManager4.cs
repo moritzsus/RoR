@@ -1,25 +1,38 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager4 : MonoBehaviour
 {
-    private static readonly float throwCooldown = 1f;
+    [SerializeField] private GameObject mainCanvas;
+    [SerializeField] private GameObject winCanvas;
+    [SerializeField] private GameObject lostCanvas;
+
+    private int guardsToHit = 10;
+    private int guardsToEscape = 5;
+
+    private bool isGameRunning = false;
+    private static readonly float throwCooldown = 0.5f;
     [SerializeField] private GameObject axe;
     private static GameObject currentAxe;
     private static bool isThrowing = false;
     private static bool allowToThrow = true;
-    private static GameManager4 instance;
+    private static GameManager4 instance = null;
 
     private static int guardsHit = 0;
     private static int guardsEscaped = 0;
 
     public static bool gameFinished = false;
 
+    public static GameManager4 GetInstance()
+    {
+        return instance;
+    }
+
 
     private void Awake()
     {
+        MainManager.GetInstance().SetCurrentScene("Minigame 4");
+
         if (instance == null)
             instance = this;
         else
@@ -27,27 +40,48 @@ public class GameManager4 : MonoBehaviour
     }
     private void Start()
     {
+        mainCanvas.SetActive(true);
+        winCanvas.SetActive(false);
+        lostCanvas.SetActive(false);
+
+        isThrowing = false;
+        allowToThrow = true;
+        guardsHit = 0;
+        guardsEscaped = 0;
+        gameFinished = false;
+
         currentAxe = Instantiate(axe, new Vector3(0, -8, 0), Quaternion.identity);
     }
 
-    public static void IncreaseGuardsHit()
+    public bool IsGameRunning()
+    {
+        return isGameRunning;
+    }
+
+    public void SetIsGameRunning(bool isRunning)
+    {
+        isGameRunning = isRunning;
+        mainCanvas.SetActive(false);
+    }
+
+    public void IncreaseGuardsHit()
     {
         guardsHit++;
-        Debug.Log("Hit: " + guardsHit);
-        if (guardsHit == 15)
+        if (guardsHit == guardsToHit)
         {
-            Debug.Log("YOU WON");
             gameFinished = true;
+            isGameRunning = false;
+            OnPlayerWon();
         }
     }
-    public static void IncreaseGuardsEscaped()
+    public void IncreaseGuardsEscaped()
     {
         guardsEscaped++;
-        Debug.Log("Escaped: " + guardsEscaped);
-        if (guardsEscaped == 5)
+        if (guardsEscaped == guardsToEscape)
         {
-            Debug.Log("GAME OVER");
             gameFinished = true;
+            isGameRunning = false;
+            OnPlayerDied();
         }
     }
     public static GameObject GetCurrentAxe()
@@ -76,5 +110,18 @@ public class GameManager4 : MonoBehaviour
         return allowToThrow;
     }
 
-    
+    public void OnPlayerWon()
+    {
+        mainCanvas.SetActive(false);
+        winCanvas.SetActive(true);
+        lostCanvas.SetActive(false);
+        MainManager.GetInstance().SetGameCompleted(4);
+    }
+
+    public void OnPlayerDied()
+    {
+        mainCanvas.SetActive(false);
+        winCanvas.SetActive(false);
+        lostCanvas.SetActive(true);
+    }
 }
