@@ -88,6 +88,8 @@ public class Game1Manager : MonoBehaviour
             if (guard.wasSeen)
             {
                 // Activate the GameOver screen
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
                 mainCanvas.SetActive(false);
                 winCanvas.SetActive(false);
                 lostCanvas.SetActive(true);
@@ -108,6 +110,8 @@ public class Game1Manager : MonoBehaviour
         if (GreekCounter >= 1)
         {
             // Activate the WinScreen screen
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             mainCanvas.SetActive(false);
             winCanvas.SetActive(true);
             lostCanvas.SetActive(false);

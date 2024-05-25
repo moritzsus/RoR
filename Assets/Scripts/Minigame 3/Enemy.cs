@@ -174,7 +174,5 @@ public class Enemy : MonoBehaviour
             GameManager3.GetInstance().OnPlayerWon();
             GameManager3.GetInstance().SetIsGameRunning(false);
         }
-
-        Debug.Log("Enemy Health: " + health);
     }
 }

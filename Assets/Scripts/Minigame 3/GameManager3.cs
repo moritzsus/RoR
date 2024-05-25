@@ -59,12 +59,18 @@ public class GameManager3 : MonoBehaviour
     {
         isGameRunning = isRunning;
         mainCanvas.SetActive(false);
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        if (isRunning)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 
     public void OnPlayerWon()
     {
+        isGameRunning = false;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         mainCanvas.SetActive(false);
         winCanvas.SetActive(true);
         lostCanvas.SetActive(false);
@@ -73,6 +79,9 @@ public class GameManager3 : MonoBehaviour
 
     public void OnPlayerDied()
     {
+        isGameRunning = false;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         mainCanvas.SetActive(false);
         winCanvas.SetActive(false);
         lostCanvas.SetActive(true);
