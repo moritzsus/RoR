@@ -6,7 +6,7 @@ public class CameraController2 : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!Game2Manager.GetGameOver())
+        if (!Game2Manager.GetInstance().GetGameOver())
             transform.position = new Vector3(targetTransform.position.x, transform.position.y, transform.position.z);
     }
 }

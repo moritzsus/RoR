@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -33,6 +32,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager3.GetInstance().IsGameRunning())
+            return;
+
         if (isDead)
             return;
 
@@ -92,6 +94,8 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool(animBoolIsDead, true);
             isDead = true;
+            GameManager3.GetInstance().OnPlayerDied();
+            GameManager3.GetInstance().SetIsGameRunning(false);
         }
 
         Debug.Log("Gladiator Health: " + health);

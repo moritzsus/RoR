@@ -3,15 +3,15 @@ using UnityEngine;
 public class PlayerGreekController : MonoBehaviour
 {
     private readonly float movementSpeed = 5.0f;
-    public bool isIdle = false;
+    private bool isIdle = true;
     private string animIdle = "Idle";
 
     private int counter = 0;
 
-    public float horizontalInput = -1;
+    private float horizontalInput = -1;
 
-    public float lastHoritzontalInput = 1;
-    public float verticalInput = 1;
+    private float lastHoritzontalInput = 1;
+    private float verticalInput = 1;
     private Transform playerTransform;
 
     private float maxLeft = -72;
@@ -32,6 +32,9 @@ public class PlayerGreekController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!Game1Manager.GetInstance().IsGameRunning())
+            return;
+
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 

@@ -46,6 +46,9 @@ public class PlayerController2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!Game2Manager.GetInstance().IsGameRunning())
+            return;
+
         // if only FixedUpdate checks for KeyDown it may skip some inputs because it does not run every frame
         if (Input.GetKeyDown(KeyCode.Space) && !jumpInputBuffer && !isPlayerInAir)
         {
@@ -55,34 +58,40 @@ public class PlayerController2 : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!Game2Manager.GetInstance().IsGameRunning())
+            return;
+
         if (transform.position.y < deathHeight)
         {
-            Game2Manager.SetGameOver(true);
+            Game2Manager.GetInstance().SetGameOver(true);
+            Game2Manager.GetInstance().OnPlayerDied();
             Destroy(gameObject);
         }
         if (isDead)
             return;
-        if (Game2Manager.GetChickenCaughtPlayer())
+        if (Game2Manager.GetInstance().GetChickenCaughtPlayer())
         {
             isDead = true;
+            Game2Manager.GetInstance().OnPlayerDied();
             anim.SetBool(animBoolIsDead, true);
         }
 
-        if (!Game2Manager.GetGameOver() && !Game2Manager.GetReachedFinish())
+        if (!Game2Manager.GetInstance().GetGameOver() && !Game2Manager.GetInstance().GetReachedFinish())
         {
             HandleMovement();
-            if (transform.position.x > finishLine && Game2Manager.GetEggStolen())
+            if (transform.position.x > finishLine && Game2Manager.GetInstance().GetEggStolen())
             {
                 Instantiate(eggPrefab, eggPosition, Quaternion.identity);
-                Game2Manager.SetReachedFinish(true);
+                Game2Manager.GetInstance().SetReachedFinish(true);
+                Game2Manager.GetInstance().OnPlayerWon();
             }
         }
-        if (Game2Manager.GetGameOver())
+        if (Game2Manager.GetInstance().GetGameOver())
         {
             // TODO menu -> restart
             Debug.Log("Game over!");
         }
-        if (Game2Manager.GetReachedFinish())
+        if (Game2Manager.GetInstance().GetReachedFinish())
         {
             anim.SetBool(animBoolIsRunning, false);
             anim.SetBool(animBoolIsJumping, false);
@@ -147,14 +156,6 @@ public class PlayerController2 : MonoBehaviour
             {
                 isPlayerInAir = false;
             }
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-            Debug.Log("At Player P");
         }
     }
 }

@@ -37,13 +37,16 @@ public class ChickenController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!Game2Manager.GetInstance().IsGameRunning())
+            return;
+
         if (transform.position.y < deathHeight)
         {
-            Game2Manager.SetGameOver(true);
+            Game2Manager.GetInstance().SetGameOver(true);
             Destroy(gameObject);
         }
 
-        if (Game2Manager.GetEggStolen() && !eggStolen)
+        if (Game2Manager.GetInstance().GetEggStolen() && !eggStolen)
         {
             eggStolen = true;
         }
@@ -56,7 +59,7 @@ public class ChickenController : MonoBehaviour
 
         if (chasePlayer)
         {
-            if (Game2Manager.GetReachedFinish() && !fleeFromWolf)
+            if (Game2Manager.GetInstance().GetReachedFinish() && !fleeFromWolf)
             {
                 chasePlayer = false;
                 StartCoroutine(HandlePlayerInFinish());
@@ -127,7 +130,7 @@ public class ChickenController : MonoBehaviour
                 caughtPlayer = true;
                 boxCollider.enabled = true;
                 rigidBody.simulated = true;
-                Game2Manager.SetChickenCaughtPlayer(true);
+                Game2Manager.GetInstance().SetChickenCaughtPlayer(true);
             }
         }
     }

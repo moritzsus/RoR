@@ -8,7 +8,7 @@ public class Egg : MonoBehaviour
         {
             // TODO show Egg picked up Message, place egg at finish, change chicken colliders?
             // TODO only finish when egg collected
-            Game2Manager.SetEggStolen(true);
+            Game2Manager.GetInstance().SetEggStolen(true);
             Destroy(gameObject);
         }
     }

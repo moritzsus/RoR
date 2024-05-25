@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -13,31 +12,31 @@ public class GuardModulController : MonoBehaviour
     private Animator anim;
 
     private string animIdle = "Idle";
-    private string animAlerted = "Alerted"; // The name of the boolean parameter in the animator controller
+    private string animAlerted = "Alerted";
 
-    public bool wasSeen = false; // Variable to track if the guard was seen
+    public bool wasSeen = false;
 
-    private GameObject alertObject; // Reference to the Alert child object
+    private GameObject alertObject;
 
     public bool alertedAnimationPlayed = false;
 
     void Start()
-    {   
-         Game1Manager gameManager = Game1Manager.GetInstance();
+    {
+        Game1Manager gameManager = Game1Manager.GetInstance();
         anim = gameObject.GetComponent<Animator>();
-        alertObject = transform.Find("Alert").gameObject; // Find the Alert child object
+        alertObject = transform.Find("Alert").gameObject;
         if (alertObject != null)
         {
-            alertObject.SetActive(false); // Initially hide the alert object
+            alertObject.SetActive(false);
         }
-                if (gameManager != null)
+        if (gameManager != null)
         {
             gameManager.RegisterGuard(this);
         }
     }
 
     void FixedUpdate()
-    {   
+    {
         if (alertedAnimationPlayed)
         {
             anim.SetBool(animIdle, false); // Set the idle animation to false
@@ -108,10 +107,10 @@ public class GuardModulController : MonoBehaviour
     }
 
     public void ResetToWalk()
-    {   
+    {
         anim.SetBool(animAlerted, false);
-        anim.SetBool(animIdle,false);
-         alertObject.SetActive(false);
+        anim.SetBool(animIdle, false);
+        alertObject.SetActive(false);
         this.wasSeen = false;
         this.alertedAnimationPlayed = false;
     }
