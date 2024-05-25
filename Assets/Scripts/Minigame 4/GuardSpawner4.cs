@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GuardSpawner4 : MonoBehaviour
@@ -11,16 +9,22 @@ public class GuardSpawner4 : MonoBehaviour
     private float xSpawnPosRight = 14.6f;
     private float xSpawnPosRightTopLevel = -3.3f;
 
+    private bool spawnActive = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        SpawnGuard();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (GameManager4.GetInstance().IsGameRunning() && !spawnActive)
+        {
+            spawnActive = true;
+            SpawnGuard();
+        }
     }
 
 

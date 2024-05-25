@@ -38,6 +38,9 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager3.GetInstance().IsGameRunning())
+            return;
+
         if (isDead)
             return;
 
@@ -168,6 +171,8 @@ public class Enemy : MonoBehaviour
         {
             anim.SetBool(animBoolIsDead, true);
             isDead = true;
+            GameManager3.GetInstance().OnPlayerWon();
+            GameManager3.GetInstance().SetIsGameRunning(false);
         }
 
         Debug.Log("Enemy Health: " + health);

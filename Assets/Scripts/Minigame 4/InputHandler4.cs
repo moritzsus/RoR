@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Xml.Serialization;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class InputHandler4 : MonoBehaviour
 {
@@ -22,9 +18,11 @@ public class InputHandler4 : MonoBehaviour
     {
         mainCamera = Camera.main;
     }
-    
+
     public void OnClick(InputAction.CallbackContext context)
     {
+        if (!GameManager4.GetInstance().IsGameRunning())
+            return;
         if (GameManager4.gameFinished)
             return;
 
@@ -41,10 +39,10 @@ public class InputHandler4 : MonoBehaviour
             axe.SetTargetObject(rayHit.collider.gameObject);
         if (!rayHit.collider) return;
 
-        GameManager4.IncreaseGuardsHit();
+        GameManager4.GetInstance().IncreaseGuardsHit();
     }
     private Axe ThrowAxe(Vector3 targetPosition)
-    {        
+    {
         float xFactor = targetPosition.x / Screen.width;
         float yFactor = targetPosition.y / Screen.height;
         xFactor *= 2;

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static Unity.Collections.AllocatorManager;
 
 public class Axe : MonoBehaviour
 {
@@ -23,7 +20,7 @@ public class Axe : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -31,7 +28,8 @@ public class Axe : MonoBehaviour
     {
         if (!GameManager4.GetIsThrowing())
             return;
-        if(target != null)
+
+        if (target != null)
         {
             if (targetObject != null)
             {
@@ -46,7 +44,7 @@ public class Axe : MonoBehaviour
 
             transform.Rotate(Vector3.forward, rotationSpeed * Time.fixedDeltaTime);
 
-            if ((transform.position.y > target.y - 1f) || (targetObject && (targetObject.transform.position-transform.position).magnitude < 0.2f))
+            if ((transform.position.y > target.y - 1f) || (targetObject && (targetObject.transform.position - transform.position).magnitude < 0.2f))
             {
                 if (targetObject)
                 {
