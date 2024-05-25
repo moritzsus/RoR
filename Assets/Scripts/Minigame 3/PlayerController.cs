@@ -97,8 +97,6 @@ public class PlayerController : MonoBehaviour
             GameManager3.GetInstance().OnPlayerDied();
             GameManager3.GetInstance().SetIsGameRunning(false);
         }
-
-        Debug.Log("Gladiator Health: " + health);
     }
 
 }

@@ -105,6 +105,8 @@ public class Game2Manager : MonoBehaviour
 
     public void OnPlayerWon()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         mainCanvas.SetActive(false);
         winCanvas.SetActive(true);
         lostCanvas.SetActive(false);
@@ -113,6 +115,8 @@ public class Game2Manager : MonoBehaviour
 
     public void OnPlayerDied()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         mainCanvas.SetActive(false);
         winCanvas.SetActive(false);
         lostCanvas.SetActive(true);
