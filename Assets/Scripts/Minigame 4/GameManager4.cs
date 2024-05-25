@@ -6,10 +6,12 @@ public class GameManager4 : MonoBehaviour
     [SerializeField] private GameObject mainCanvas;
     [SerializeField] private GameObject winCanvas;
     [SerializeField] private GameObject lostCanvas;
+    [SerializeField] private GameObject pauseCanvas;
 
     private int guardsToHit = 10;
     private int guardsToEscape = 5;
 
+    private bool paused = false;
     private bool isGameRunning = false;
     private static readonly float throwCooldown = 0.5f;
     [SerializeField] private GameObject axe;
@@ -43,6 +45,7 @@ public class GameManager4 : MonoBehaviour
         mainCanvas.SetActive(true);
         winCanvas.SetActive(false);
         lostCanvas.SetActive(false);
+        pauseCanvas.SetActive(false);
 
         isThrowing = false;
         allowToThrow = true;
@@ -51,6 +54,17 @@ public class GameManager4 : MonoBehaviour
         gameFinished = false;
 
         currentAxe = Instantiate(axe, new Vector3(0, -8, 0), Quaternion.identity);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && isGameRunning)
+        {
+            if (paused)
+                OnResume();
+            else
+                OnPause();
+        }
     }
 
     public bool IsGameRunning()
@@ -123,5 +137,19 @@ public class GameManager4 : MonoBehaviour
         mainCanvas.SetActive(false);
         winCanvas.SetActive(false);
         lostCanvas.SetActive(true);
+    }
+
+    public void OnPause()
+    {
+        paused = true;
+        pauseCanvas.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void OnResume()
+    {
+        Time.timeScale = 1;
+        paused = false;
+        pauseCanvas.SetActive(false);
     }
 }

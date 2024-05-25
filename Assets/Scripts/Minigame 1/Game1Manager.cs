@@ -6,9 +6,11 @@ public class Game1Manager : MonoBehaviour
     [SerializeField] private GameObject mainCanvas;
     [SerializeField] private GameObject winCanvas;
     [SerializeField] private GameObject lostCanvas;
+    [SerializeField] private GameObject pauseCanvas;
 
     private static Game1Manager instance = null;
 
+    private bool paused = false;
     [SerializeField] private bool isGameRunning = false;
     [SerializeField] private bool gameOver = false;
     [SerializeField] private int GreekCounter = 0;
@@ -34,6 +36,7 @@ public class Game1Manager : MonoBehaviour
         mainCanvas.SetActive(true);
         winCanvas.SetActive(false);
         lostCanvas.SetActive(false);
+        pauseCanvas.SetActive(false);
         isGameRunning = false;
         gameOver = false;
     }
@@ -57,6 +60,17 @@ public class Game1Manager : MonoBehaviour
     public void RegisterGuard(GuardModulController guard)
     {
         guards.Add(guard);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && isGameRunning)
+        {
+            if (paused)
+                OnResume();
+            else
+                OnPause();
+        }
     }
 
     // Method to check if any guard was seen
@@ -120,5 +134,25 @@ public class Game1Manager : MonoBehaviour
     {
         isGameRunning = isRunning;
         mainCanvas.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void OnPause()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        paused = true;
+        pauseCanvas.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void OnResume()
+    {
+        Time.timeScale = 1;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        paused = false;
+        pauseCanvas.SetActive(false);
     }
 }

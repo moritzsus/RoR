@@ -17,4 +17,9 @@ public class UILogicMuseum : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void Resume()
+    {
+        GameManagerMuseum.GetInstance().OnResume();
+    }
 }
