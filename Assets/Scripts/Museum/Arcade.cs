@@ -8,12 +8,13 @@ public class Arcade : MonoBehaviour
 {
     [SerializeField] private Transform playerTransform;
     [SerializeField] private Transform playerOrientation;
+
 #if UNITY_EDITOR
     [SerializeField] private SceneAsset sceneToLoad;
 #endif
     [SerializeField] private string sceneName;
 
-    private float interactDistance = 2.5f;
+    private float interactDistance = 2.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,8 @@ public class Arcade : MonoBehaviour
 
         if (distance < interactDistance)
         {
+            GameManagerMuseum.GetInstance().SetPressEhint();
+
             if (Input.GetKeyUp(KeyCode.E))
             {
                 MainManager.GetInstance().SetLastPlayerPosition(playerTransform.position);
