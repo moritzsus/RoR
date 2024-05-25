@@ -5,9 +5,12 @@ public class GameManagerMuseum : MonoBehaviour
 {
     [SerializeField] private GameObject exitCanvas;
     [SerializeField] private GameObject pauseCanvas;
+    [SerializeField] private GameObject pressEhint;
     [SerializeField] private TextMeshProUGUI scoreText;
 
     private static GameManagerMuseum instance;
+
+    private bool showEhintSignal;
 
     private bool isGameRunning = true;
     private bool paused = false;
@@ -20,6 +23,7 @@ public class GameManagerMuseum : MonoBehaviour
     private void Awake()
     {
         MainManager.GetInstance().SetCurrentScene("Museum");
+        showEhintSignal = false;
 
         if (instance == null)
             instance = this;
@@ -31,6 +35,7 @@ public class GameManagerMuseum : MonoBehaviour
     {
         exitCanvas.SetActive(false);
         pauseCanvas.SetActive(false);
+        pressEhint.SetActive(false);
         isGameRunning = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -45,6 +50,26 @@ public class GameManagerMuseum : MonoBehaviour
             else
                 OnPause();
         }
+
+        CheckForPressESignal();
+    }
+
+    private void LateUpdate()
+    {
+        showEhintSignal = false;
+    }
+
+    public void SetPressEhint()
+    {
+        showEhintSignal = true;
+    }
+
+    private void CheckForPressESignal()
+    {
+        if (showEhintSignal)
+            pressEhint.SetActive(true);
+        else
+            pressEhint.SetActive(false);
     }
 
     public bool GetIsGameRunning()
