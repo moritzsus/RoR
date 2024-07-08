@@ -4,12 +4,12 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
-
     public float airMultiplier;
 
     public Transform orientation;
-
     private CharacterController controller;
+
+    private bool posSet = false;
 
     private void Awake()
     {
@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 savedRotation = MainManager.GetInstance().GetLastPlayerRotation();
         transform.position = savedPosition;
         orientation.rotation = Quaternion.Euler(savedRotation);
+        posSet = false;
     }
 
     private void Start()
@@ -31,6 +32,18 @@ public class PlayerMovement : MonoBehaviour
             return;
 
         MyInput();
+    }
+
+    private void LateUpdate()
+    {
+        if (!posSet)
+        {
+            posSet = true;
+            Vector3 savedPosition = MainManager.GetInstance().GetLastPlayerPosition();
+            Vector3 savedRotation = MainManager.GetInstance().GetLastPlayerRotation();
+            transform.position = savedPosition;
+            orientation.rotation = Quaternion.Euler(savedRotation);
+        }
     }
 
     private void MyInput()
